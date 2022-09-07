@@ -8,6 +8,7 @@
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded"> -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="material-symbols-rounded.css">
+    <script src="javaScript.js"></script>
     <title>Youtube</title>
 </head>
 <body>
@@ -23,7 +24,8 @@
 
             <!-- Middle Column -->
             <div class="mid-column">
-                <input type="search" placeholder="Search..">
+                <i id="hidden-search" class="material-symbols-rounded">search</i>
+                <input type="search" placeholder="Search" id="search-bar" onfocus="showSearch()" onblur="hideSearch()">
                 <button id="search"><i class="material-symbols-rounded">search</i></button>
                 <button id="voice"><i class="material-symbols-rounded">mic</i></button>
             </div>
@@ -39,23 +41,23 @@
         <!-- Left Menu (7 rows GRID) -->
         <div class="menu">
             <!-- First Menu - Main Menu (More importante?) -->
-            <div class="first">
-                <div class="button">
+            <div class="first"> <!-- Goes to index.html -->
+                <div class="button page">
                     <i class="material-symbols-rounded">home</i>
                     <span>Home</span>
                 </div>
     
-                <div class="button">
+                <div class="button"> <!-- feed/explorer -->
                     <i class="material-symbols-rounded">explore</i>
                     <span>Explore</span>
                 </div>
     
-                <div class="button">
+                <div class="button"> <!-- shorts -->
                     <i class="material-symbols-rounded">fast_forward</i>
                     <span>Shorts</span>
                 </div>
     
-                <div class="button">
+                <div class="button"> <!-- feed/subscriptions -->
                     <i class="material-symbols-rounded">subscriptions</i>
                     <span>Subscriptions</span>
                 </div>
@@ -64,17 +66,17 @@
             
             <!-- Second Menu - Categories (Second most important) -->
             <div class="second">
-                <div class="button">
+                <div class="button"> <!-- feed/library -->
                     <i class="material-symbols-rounded">home</i>
                     <span>Library</span>
                 </div>
     
-                <div class="button">
+                <div class="button"> <!-- feed/history -->
                     <i class="material-symbols-rounded">history</i>
                     <span>History</span>
                 </div>
     
-                <div class="button">
+                <div class="button"> <!-- https://studio.youtube.com/channel/UClnAFtHe2BMFZXCYnzgobIA/videos -->
                     <i class="material-symbols-rounded">slideshow</i>
                     <span>Your videos</span>
                 </div>
@@ -99,6 +101,7 @@
             
             <div class="subscriptions">
                 <h5>SUBSCRIPTIONS</h5>
+                
                 <div class="button">
                     <i class="material-symbols-rounded">account_circle</i>
                     <span>Luciano Simoni</span>
@@ -119,6 +122,7 @@
 
             <div class="explore">
                 <h5>EXPLORE</h5>
+                
                 <div class="button">
                     <i class="material-symbols-rounded">theaters</i>
                     <span>Movies & shows</span>
@@ -154,27 +158,28 @@
 
             <div class="more">
                 <h5>MORE FROM YOUTUBE</h5>
-                <div class="button">
+                
+                <div class="button yt">
                     <i class="material-symbols-rounded">youtube_activity</i>
                     <span>YouTube Premium</span>
                 </div>
     
-                <div class="button">
+                <div class="button yt">
                     <i class="material-symbols-rounded">slow_motion_video</i>
                     <span>Creator Studio</span>
                 </div>
     
-                <div class="button">
+                <div class="button yt">
                     <i class="material-symbols-rounded">album</i>
                     <span>YouTube Music</span>
                 </div>
     
-                <div class="button">
+                <div class="button yt">
                     <i class="material-symbols-rounded">toys</i>
                     <span>YouTube Kids</span>
                 </div>
     
-                <div class="button">
+                <div class="button yt">
                     <i class="material-symbols-rounded">tv</i>
                     <span>YouTube TV</span>
                 </div>
@@ -183,7 +188,6 @@
             <hr>
 
             <div class="last">
-                
                 <div class="button">
                     <i class="material-symbols-rounded">settings</i>
                     <span>Settings</span>
@@ -209,7 +213,7 @@
             <div class="footer"></div>
         </div>
 
-        <!-- Main video block (2 rows GRID) -->
+        <!-- Main vidcodeo block (2 rows GRID) -->
         <div class="main"></div>
 
     </div>

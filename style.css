@@ -38,27 +38,58 @@ html, body{
     justify-content: left;
     align-items: center;
 }
-.nav .left-column button {
+.nav button {
     border: none;
     height: 40px;
     width: 40px;
     border-radius: 26px;
+    border: none;
     background-color: unset;
     padding: 8px;
     color: white;
+    
+    transition: 0.3s;
+}
+.nav button:active {
+    background-color: #383838;
+    transition: 0s;
+}
+.nav button:hover {
+    cursor: pointer;
 }
 .nav .left-column img {
     height: 30px;
+}
+.nav .left-column img:hover {
+    cursor: pointer;
 }
 .nav .mid-column { /* Middle Column */
     display: flex;
     justify-content: center;
 }
-.nav input {
-    background-color: hsl(0, 0%, 7%);
+.nav #hidden-search {
+    display: none;
+    background-color: #121212;
+    border: 1px solid #3298FD;
+    border-right: 0;
+    padding: 8px;
+    height: 40px;
+    width: 40px;
+}
+.nav input { /* Search Bar */
+    background-color: #121212;
     height: 40px;
     width: 538px;
-    border: 2px solid #303030;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 0 6px;
+    border: 1px solid #303030;
+}
+.nav input:focus {
+    outline: none;
+    border: 1px solid #3298FD;
+    border-left: 0;
 }
 .nav #search {
     background-color: #303030;
@@ -68,7 +99,9 @@ html, body{
     border: none;
     border-radius: 0 2px 2px 0;
 }
-
+.nav #search:hover {
+    cursor: pointer;
+}
 .nav #voice {
     font-variation-settings: 'FILL' 1;
     background-color: #181818;
@@ -80,9 +113,9 @@ html, body{
     margin-left: 4px;
 }
 .nav #voice:hover {
-    background-color: ;
+    cursor: pointer;
 }
-.nav .right-column { /* Middle Column */
+.nav .right-column { /* Right Column */
     display: flex;
     justify-items: right;
 }
@@ -95,7 +128,7 @@ html, body{
     grid-area: menu;
     display: grid;
     grid-template-rows: auto;
-    grid-gap: 12px;
+    grid-gap: 8px;
     
     padding: 12px 0;
     
@@ -108,7 +141,12 @@ html, body{
 .menu hr {
     border: 1px solid #383838;
 }
-.menu .button {
+.menu h5 {
+    padding: 8px 24px;
+    height: 33px;
+    color: #AAAAAA;
+}
+.menu .button { /* Div button with i and span inside*/
     display: grid;
     grid-template-columns: 24px 72px;
     grid-gap: 24px;
@@ -117,11 +155,30 @@ html, body{
     height: 40px;
     align-content: center;
 }
+.menu .button:hover {
+    cursor: pointer;
+    background-color: #383838;
+}
+.menu .button:focus {
+    background-color: #383838;
+}
+.menu .button:focus:hover{
+    cursor: pointer;
+    background-color: #484848;
+}
+.menu .button.page {
+    background-color: #383838;
+}
+.menu .button.page:hover {
+    cursor: pointer;
+    background-color: #505050;
+}
+
+.menu .button.yt i { /* Inside Menu, in the element with class btn&&yt, change its i */
+    color: red;
+}
 .menu .button span {
     width: max-content;
-}
-.menu .button:hover {
-    background-color: #383838;
 }
 .menu .first, .second, .subscriptions, .explore, .more{ /* The grid inside each row-grid */
     display: grid;
