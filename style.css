@@ -23,21 +23,18 @@ html, body{
     height: 100vh;
 }
 
-/* Nav code */
+/* Nav code NAVIGATION NAVIGATION NAVIGATION NAVIGATION NAVIGATION NAVIGATION NAVIGATION NAVIGATION*/
 .nav {
     grid-area: nav;
     display: grid;
     grid-template-columns: auto 1fr auto;
+    grid-template-areas: "left-col mid-col right-col";
     align-content: center;
 
     padding: 0 16px;
     overflow: hidden;
 }
-.nav .left-column { /* Left Column */
-    display: flex;
-    justify-content: left;
-    align-items: center;
-}
+
 .nav button {
     border: none;
     height: 40px;
@@ -57,17 +54,29 @@ html, body{
 .nav button:hover {
     cursor: pointer;
 }
+
+.nav .left-column { /* Left Column */
+    grid-area: left-col;
+    
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
 .nav .left-column img {
     height: 30px;
 }
 .nav .left-column img:hover {
     cursor: pointer;
 }
+
 .nav .mid-column { /* Middle Column */
+    grid-area: mid-col;
+
     display: flex;
+    margin: 0 80px;
     justify-content: center;
 }
-.nav #hidden-search {
+.nav .mid-column #focus-search-icon {
     display: none;
     background-color: #121212;
     border: 1px solid #3298FD;
@@ -76,22 +85,27 @@ html, body{
     height: 40px;
     width: 40px;
 }
-.nav input { /* Search Bar */
+.nav .mid-column input { /* Search Bar */
     background-color: #121212;
+
     height: 40px;
-    width: 538px;
+    width: 100%;
+    max-width: 538px;
+
+    padding: 0 6px;
+    
     color: white;
     font-size: 16px;
     font-weight: 400;
-    padding: 0 6px;
+
     border: 1px solid #303030;
 }
-.nav input:focus {
+.nav .mid-column input:focus {
     outline: none;
     border: 1px solid #3298FD;
     border-left: 0;
 }
-.nav #search {
+.nav .mid-column #search-btn {
     background-color: #303030;
     height: 40px;
     width: 64px;
@@ -99,10 +113,12 @@ html, body{
     border: none;
     border-radius: 0 2px 2px 0;
 }
-.nav #search:hover {
+.nav .mid-column #search-btn:hover {
     cursor: pointer;
 }
-.nav #voice {
+.nav .mid-column #voice {
+    display: none;
+
     font-variation-settings: 'FILL' 1;
     background-color: #181818;
     height: 40px;
@@ -112,18 +128,26 @@ html, body{
     border-radius: 26px;
     margin-left: 4px;
 }
-.nav #voice:hover {
+.nav .mid-column #voice:hover {
     cursor: pointer;
 }
+
 .nav .right-column { /* Right Column */
+    grid-area: right-col;
+
     display: flex;
-    justify-items: right;
+    justify-content: right;
 }
-/* Nav code ends */
+.nav .right-column button {
+    margin-left: 8px;
+}
+.nav .right-column #mobile-search-btn {
+    display: none;
+}
 
+/* Nav code ends NAVIGATION NAVIGATION NAVIGATION NAVIGATION NAVIGATION NAVIGATION NAVIGATION NAVIGATION*/
 
-
-/* Menu code */
+/* Menu code MENU MENU MENU MENU MENU MENU MENU MENU MENU */
 .menu {
     grid-area: menu;
     display: grid;
@@ -166,16 +190,19 @@ html, body{
     cursor: pointer;
     background-color: #484848;
 }
-.menu .button.page {
+.menu .button.selected {
     background-color: #383838;
 }
-.menu .button.page:hover {
+.menu .button.selected:hover {
     cursor: pointer;
     background-color: #505050;
 }
 
 .menu .button.yt i { /* Inside Menu, in the element with class btn&&yt, change its i */
     color: red;
+}
+.menu .button.library { /* Hides it Initialy, should only appear after certain size */
+    display: none;
 }
 .menu .button span {
     width: max-content;
@@ -194,7 +221,7 @@ html, body{
 }
 
 
-/* Menu code ends */
+/* Menu code ends  MENU MENU MENU MENU MENU MENU MENU MENU MENU MENU MENU*/
 
 
 /* Videos code */
@@ -212,5 +239,97 @@ html, body{
 /* Videos code ends */
 
 
-/* less than 1313 the left menu enter a new state. */
-/* less than 1128 the main grid goes to 3 columns only, dont go more responsive than that*/
+/* --------------------------------------------------------------------------- */
+
+/* if less than 1313: Menu reduced */
+@media screen and (max-width: 1313px) {
+    .container { /* Updates the MENU width */
+        grid-template:
+        "nav nav" 56px
+        "menu main" 1fr /
+        72px 1fr;
+    }
+    /*HIDE CLASSES: second subscriptions explore more last footer */
+    .menu .second,
+    .menu .subscriptions,
+    .menu .explore,
+    .menu .more,
+    .menu .last,
+    .menu .footer{
+        display: none;
+    }
+    .menu { /* Update the rows size and removes the padding on top and bottom */
+        grid-template-rows: 76px;
+        padding: 0;
+    }
+    .menu hr { /* Hide the hr's between the div groups */
+        display: none;
+    }
+    .menu:hover { /* Hide the Scroll when hovered */
+        overflow: hidden;
+    }
+    .menu .button { /* Div button with i and span inside*/
+        display: grid;
+
+        grid-template-columns: auto;
+        grid-gap: 6px;
+        
+        font-size:x-small;
+        padding: 0;
+
+        width: auto;
+        height: 76px;
+        justify-content: center;
+    }
+    .menu .button i { /* Justify the Icons to the center */
+        justify-self: center;
+    }
+    .menu .button.library {
+        display: grid;
+    }
+}
+
+/* if less than 1128: 3 video columns only */
+@media screen and (max-width: 1128px) {
+
+}
+
+/* if less than 870: 2 video columns only*/
+@media screen and (max-width: 870px) {
+    
+}
+
+/* if less than 775: Hides Menu*/
+@media screen and (max-width: 775px) {
+    .container { /* Removes the Menu from the left */
+        grid-template: 
+        "nav" 56px
+        " main" 1fr /
+        1fr;   
+    }
+
+    .menu { /* Hides the menu */
+        display: none;
+    }
+    
+}
+
+/* if less than 644: the search bar is gone */
+@media screen and (max-width: 644px) {
+    .nav {
+        grid-template-areas: "left-col right-col";
+    }
+    .nav .mid-column {
+        display: none;
+    }
+    .nav .right-column #mobile-search-btn {
+        display: flex;
+    }
+}
+
+/* Less than 495: Only 1 video column and go to complete mobile (like the YT app) */
+@media screen and (max-width: 495px) {
+    /* Header = YouTube Logo | broadcast btn, notification btn, search btn, profile */
+    /* Main = 2 rows and 1 column. First row is the categories and second row is the videos */
+    /* Navigation on the bottom = Home | Shorts | PLUS | Subscriptions | Library. Icons and text */
+}

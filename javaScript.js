@@ -1,11 +1,11 @@
 const searchBar = document.getElementById("search-bar");
 
 function hideSearch() {
-    let hiddenSearch2 = document.getElementById('hidden-search');
+    let hiddenSearch2 = document.getElementById('focus-search-icon');
     hiddenSearch2.style.display = 'none';
 };
 function showSearch() {
-    let hiddenSearch2 = document.getElementById('hidden-search');
+    let hiddenSearch2 = document.getElementById('focus-search-icon');
     hiddenSearch2.style.display = 'block';
 };
 
